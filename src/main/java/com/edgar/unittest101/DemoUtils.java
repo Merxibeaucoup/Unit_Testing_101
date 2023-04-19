@@ -38,4 +38,18 @@ public class DemoUtils {
     public List<String> getLuvInList(){
         return luvInList;
     }
+
+    public String throwException(int a )throws Exception{
+        if(a<0){
+            throw new Exception("Value should be greater than 0");
+        }
+        return "Value is greater than or equal to 0";
+    }
+
+    public void checkTimeOut()throws InterruptedException{
+        System.out.println("I am going to sleep");
+        Thread.sleep(2000);
+        System.out.println("sleeping over");
+
+    }
 }
