@@ -3,6 +3,8 @@ package com.edgar.unittest101;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.condition.EnabledForJreRange;
+import org.junit.jupiter.api.condition.EnabledIfEnvironmentVariable;
+import org.junit.jupiter.api.condition.EnabledIfSystemProperty;
 import org.junit.jupiter.api.condition.EnabledOnJre;
 import org.junit.jupiter.api.condition.EnabledOnOs;
 import org.junit.jupiter.api.condition.JRE;
@@ -59,6 +61,17 @@ public class ConditionalTest {
     @Test
     @EnabledForJreRange(min=JRE.JAVA_9)
     void testForOnlyJavaJREMin9(){
+
+    }
+
+    @Test
+    @EnabledIfEnvironmentVariable(named ="Merxibeaucoup_ENV" , matches="DEV")
+    void testForOnlyDevEnvironment(){
+
+    }
+    @Test
+    @EnabledIfSystemProperty(named ="Merxibeaucoup_SYS_PROP" , matches="CI_CD_DEPLOY")
+    void testForOnlySystemProperties(){
 
     }
 
